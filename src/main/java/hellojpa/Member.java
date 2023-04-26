@@ -13,6 +13,14 @@ public class Member {
 	// @Column(name = "MEMBER_NAME") 이렇게 이름 변경이 가능하다
 	private String name;
 
+	public Member() {
+	}
+
+	public Member(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -27,5 +35,13 @@ public class Member {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Member{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				'}';
 	}
 }
