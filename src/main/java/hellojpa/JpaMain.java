@@ -15,13 +15,16 @@ public class JpaMain {
 
 		// 정석 코드
 		try {
-
-			Member member = new Member(200L, "A");
-			em.persist(member);
-			em.flush();
+			// Member member = new Member(200L, "A");
+			// em.persist(member);
+			// em.flush();
 
 			Member findMember = em.find(Member.class, 200L);
 			findMember.setName("B");
+			// 준영속화
+			em.detach(findMember);
+
+			findMember = em.find(Member.class, 200L);
 
 			tx.commit();
 			// commit을 하는 순간 변경 감지가 일어나서 update문이 날라간다
