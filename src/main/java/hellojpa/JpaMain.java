@@ -15,9 +15,11 @@ public class JpaMain {
 
 		// 정석 코드
 		try {
-			// Member member = new Member(200L, "A");
-			// em.persist(member);
-			// em.flush();
+			Member member = new Member();
+			member.setUsername("hello");
+			em.persist(member);
+
+			System.out.println("====================");
 
 			tx.commit();
 			// commit을 하는 순간 변경 감지가 일어나서 update문이 날라간다
