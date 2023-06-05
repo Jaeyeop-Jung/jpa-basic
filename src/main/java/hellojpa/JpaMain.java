@@ -27,8 +27,10 @@ public class JpaMain {
 			em.flush();
 			em.clear();
 
-			Member member1 = em.find(Member.class, 1L);
-			System.out.println("member1.getTeam() = " + member1.getTeam());
+			Team team1 = em.find(Team.class, 1L);
+			for (Member team1Member : team1.getMembers()) {
+				System.out.println("team1Member = " + team1Member);
+			}
 
 			tx.commit();
 			// commit을 하는 순간 변경 감지가 일어나서 update문이 날라간다
